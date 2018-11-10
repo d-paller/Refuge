@@ -21,7 +21,9 @@ namespace Refuge.Data.Mapping
                 ParentEmailAddress = s.ParentEmailAddress,
                 ParentName = s.ParentName,
                 ParentPhoneNumber = s.ParentPhoneNumber,
-                StudentId = s.StudentId
+                StudentId = s.StudentId,
+                LastLoggedIn = s.LastLoggedIn,
+                LoggedIn = s.LoggedIn
             };
         }
     }

@@ -2,6 +2,7 @@
 using Refuge.Data.Interfaces;
 using Refuge.Data.Interfaces.Context;
 using Refuge.Data.Interfaces.Repositories;
+using Refuge.Data.Mapping;
 using Refuge.Data.Model;
 using Refuge.Model.Classes;
 using System;
@@ -19,15 +20,16 @@ namespace Refuge.Data.Repositories
             _classContext = classContext;
         }
 
-        public async Task<IEnumerable<DbClass>> GetAllClasses()
+        public async Task<IEnumerable<Class>> GetAllClasses()
         {
             return await _classContext.Classes
                 .Find(_ => true)
                 .ToListAsync();
         }
 
-        public async Task CreateClass(DbClass dbClass)
+        public async Task CreateClass(Class classToAdd)
         {
+            var dbClass = new ClassMapper().MapToDbClass(classToAdd);
             await _classContext.Classes
                 .InsertOneAsync(dbClass);
         }

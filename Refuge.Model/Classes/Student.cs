@@ -22,5 +22,9 @@ namespace Refuge.Model.Classes
 
         public string Address { get; set; }
 
+        public bool LoggedIn { get; set; }
+
+        public DateTime LastLoggedIn { get; set; }
+
     }
 }
