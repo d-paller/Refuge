@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Refuge.Application.Interfaces;
+using Refuge.Model.Classes;
 
 namespace Refuge.Core.Controllers
 {
@@ -19,7 +21,30 @@ namespace Refuge.Core.Controllers
             _studentBll = studentBll;
         }
 
-        
+        [HttpPost]
+        public async Task AddStudent(string studentJson)
+        {
+            var student = JsonConvert.DeserializeObject<Student>(studentJson);
+            await _studentBll.CreateStudentAsync(student);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<Student>> GetStudentById(int studentId)
+        {
+            return new JsonResult(await _studentBll.GetStudentByIdAsync(studentId));
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Student>>> GetStudentsByClassId(int classId)
+        {
+            return new JsonResult(await _studentBll.GetStudentsByClassIdAsync(classId));
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Student>>> GetAllStudents()
+        {
+            return new JsonResult(await _studentBll.GetAllStudentsAsync());
+        }
 
     }
 }

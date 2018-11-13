@@ -17,12 +17,12 @@ namespace Refuge.Application.Business
             _studentRepository = studentRepository;
         }
 
-        internal async Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId)
+        public async Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId)
         {
             return await _studentRepository.GetStudentsByClassIdAsync(classId);
         }
 
-        internal async Task<Student> GetStudentByIdAsync(int studentId)
+        public async Task<Student> GetStudentByIdAsync(int studentId)
         {
 
             return await _studentRepository.GetStudentAsync(studentId);
@@ -33,7 +33,7 @@ namespace Refuge.Application.Business
             return await _studentRepository.GetAllStudentsAsync();
         }
 
-        public async Task CreateStudent(Student student)
+        public async Task CreateStudentAsync(Student student)
         {
             await _studentRepository.CreateStudentAsync(student);
         }
