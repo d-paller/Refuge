@@ -1,33 +1,8 @@
 [
   {
-    "outputFileName": "wwwroot/bundles/npmbundle.js",
-    "inputFiles": [
-      "node_modules/popper.js/dist/popper.min.js",
-      "node_modules/jquery/dist/jquery.min.js",
-      "node_modules/bootstrap/dist/js/bootstrap.min.js"
-
-
-    ],
-    "minify": {
-      "enabled": false,
-      "renameLocals": false
-
-    }
-  },
-  {
-    "outputFileName": "wwwroot/bundles/npmbundle.css",
-    "inputFiles": [
-      "node_modules/bootstrap/dist/css/bootstrap.min.css"
-    ],
-    "minify": {
-      "enabled": false
-    }
-  },
-
-  {
     "outputFileName": "wwwroot/bundles/bundle.js",
     "inputFiles": [
-      "wwwroot/js/*.js"
+      "wwwroot/js/site.js"
     ],
     "minify": {
       "enabled": false
@@ -36,7 +11,7 @@
   {
     "outputFileName": "wwwroot/bundles/bundle.css",
     "inputFiles": [
-      "wwwroot/css/*.css"
+      "wwwroot/css/site.css"
     ],
     "minify": {
       "enabled": false

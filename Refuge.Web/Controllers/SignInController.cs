@@ -6,24 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Refuge.Web.Controllers
 {
-    public class AdminController : Controller
+    public class SignInController : Controller
     {
         public IActionResult Index()
         {
-            return RedirectToAction("Classes");
+            return RedirectToAction("SignIn");
         }
 
-        public IActionResult Classes()
+        public IActionResult SignIn()
         {
-            ViewBag.Title = "Admin - Classes";
-
+            ViewBag.Title = "Sign In";
             return View();
         }
 
-        public IActionResult Students()
+        public IActionResult SignOut()
         {
-            ViewBag.Title = "Admin - Students";
-
+            ViewBag.Title = "Sign Out";
             return View();
         }
     }

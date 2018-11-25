@@ -4,14 +4,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<ul class="nav nav-tabs nav-fill">
-    <li class="nav-item">
-        <a class="nav-link" href="#">Classes</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Students</a>
-    </li>
-</ul>
+<div id="adminBody">
+    <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+            @Html.ActionLink("Classes", "Classes", "Admin", null, new { @class = ViewBag.Title == "Admin - Classes" ? "nav-link active" : "nav-link" })
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Students", "Students", "Admin", null, new { @class = ViewBag.Title == "Admin - Students" ? "nav-link active" : "nav-link" })
+        </li>
+    </ul>
+</div>
 
-@RenderBody()
+<div id="adminTabContent">@RenderBody()</div>
 

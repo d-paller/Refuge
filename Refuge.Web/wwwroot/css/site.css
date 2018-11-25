@@ -1,4 +1,9 @@
-body {
-    
+
+#adminBody{
+    margin-top: 20px;
+}
+
+#adminTabContent{
+    padding-top: 20px;
 }
 
