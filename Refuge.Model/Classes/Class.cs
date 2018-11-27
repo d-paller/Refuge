@@ -8,10 +8,14 @@ namespace Refuge.Model.Classes
 
         public int TeacherUserId { get; set; }
 
+        public string TeacherName { get; set; }
+
         public string Name { get; set; }
 
         public DateTime StartTime { get; set; }
 
         public string Location { get; set; }
+
+        public DayOfWeek DayOfWeek { get; set; }
     }
 }

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Refuge.Application;
+using Refuge.Data;
 
 namespace Refuge.Web
 {
@@ -31,6 +33,8 @@ namespace Refuge.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDataLayer();
+            services.AddApplicationLayer();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

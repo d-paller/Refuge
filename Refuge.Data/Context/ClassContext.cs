@@ -16,8 +16,8 @@ namespace Refuge.Data.Context
         public ClassContext(IConfigValues config)
         {
             _config = config;
-            _db = new MongoClient(_config.GetMongoConnection())
-                .GetDatabase(_config.GetRefugeDB());
+            //_db = new MongoClient(_config.GetMongoConnection())
+            //    .GetDatabase(_config.GetRefugeDB());
         }
 
         public IMongoCollection<DbClass> Classes => _db.GetCollection<DbClass>(_config.GetClassesCollection());

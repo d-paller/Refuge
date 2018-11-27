@@ -13,7 +13,8 @@ namespace Refuge.Data
         // ---------------------------------------------
         public string GetMongoConnection()
         {
-            return ConfigurationManager.ConnectionStrings["DefaultMongoConnection"].ConnectionString;
+            //TODO
+            return "";// ConfigurationManager.ConnectionStrings["DefaultMongoConnection"].ConnectionString;
         }
 
         // ---------------------------------------------

@@ -11,8 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="wwwroot\bundles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Refuge.Application\Refuge.Application.csproj" />
+    <ProjectReference Include="..\Refuge.Model\Refuge.Model.csproj" />
   </ItemGroup>
 
 </Project>

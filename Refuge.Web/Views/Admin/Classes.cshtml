@@ -3,5 +3,49 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Classes</h2>
+@model Refuge.Web.Model.AdminClassVm
+
+
+<div class="row justify-content-end">
+    <div class="col">
+        <button class="btn btn-primary">Add Class</button>
+    </div>
+</div>
+
+@foreach (var c in Model.Classes)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@c.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@c.TeacherName</h6>
+
+                    <div id="classCardBody-@c.ClassId">
+                        <div class="row">
+                            <div class="col">Location: @c.Location</div>
+                            <div class="col">Time: @c.StartTime.ToShortTimeString()</div>
+                            <div class="col">Day of the Week: @(c.DayOfWeek)</div>
+                        </div>
+
+                        @Html.ActionLink("Edit", "EditClass", "Admin",
+                            new { classToEdit = c },
+                            new { @class= "btn btn-outline-primary" }
+                        )
+                        <a class="btn btn-outline-danger classDeleteBtn" data-class-id="@c.ClassId">Delete</a>
+                    </div>
+
+                    <div id="confirmDeleteClass-@c.ClassId" style="display:none">
+                        <a class="btn btn-outline-success cancelDeleteClass">Cancel</a>
+                        <a class="btn btn-danger" href="/Admin/Classes">I'm sure, Delete</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
 
