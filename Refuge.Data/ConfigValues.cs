@@ -38,5 +38,10 @@ namespace Refuge.Data
         {
             return ConfigurationManager.AppSettings.Get("CollectionStudent");
         }
+
+        public string GetSurveyCollection()
+        {
+            return ConfigurationManager.AppSettings.Get("CollectionSurvey");
+        }
     }
 }
