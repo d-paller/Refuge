@@ -22,6 +22,7 @@ namespace Refuge.Web.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> AddSurvey(Survey s)
         {
             await _surveyRepository.AddSurvey(s);
