@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.DateOfArrivalInUS, "Phone Number")
-                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @type="date" })
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @type = "date" })
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.Language, "Native Language")
@@ -47,15 +47,15 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.LevelOfEnglish, "Level of English")
-                @Html.DropDownListFor(x => x.LevelOfEnglish, 
-                    Html.GetEnumSelectList(typeof(Refuge.Model.Enums.LevelOfEnglish)), 
+                @Html.DropDownListFor(x => x.LevelOfEnglish,
+                    Html.GetEnumSelectList(typeof(Refuge.Model.Enums.LevelOfEnglish)),
                     new { @class = "form-control" })
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.Religion, "Religion")
                 @Html.TextBoxFor(x => x.Religion, new { @class = "form-control" })
             </div>
-            
+
         </div>
     </div>
 
@@ -71,10 +71,10 @@
                 @Html.LabelFor(x => x.Notes, "Additional Information")
                 @Html.TextAreaFor(x => x.Notes, new { @class = "form-control" })
             </div>
-            <div class="form-group">
-                @Html.LabelFor(x => x.OkayToContactAboutRefugeActivities, 
+            <div class="form-group form-inline">
+                @Html.CheckBoxFor(x => x.OkayToContactAboutRefugeActivities, new { @class = "form-control", @style = "margin-right: 10px;" })
+                @Html.LabelFor(x => x.OkayToContactAboutRefugeActivities,
                     "It is Okay to contact about refuge specific events and services")
-                @Html.CheckBoxFor(x => x.OkayToContactAboutRefugeActivities, new { @class = "form-control" })
             </div>
         </div>
     </div>

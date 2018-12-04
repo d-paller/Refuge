@@ -9,5 +9,7 @@ namespace Refuge.Data.Interfaces.Repositories
     public interface ISurveyRepository
     {
         Task AddSurvey(Survey survey);
+
+        Task<IEnumerable<Survey>> GetAllSurveys();
     }
 }

@@ -19,6 +19,8 @@ namespace Refuge.Data
             services.AddTransient<ISurveyRepository, SurveyRepository>();
 
             services.AddTransient<IClassContext, ClassContext>();
+            services.AddTransient<ISurveyContext, SurveyContext>();
+
             services.AddSingleton<IConfigValues, ConfigValues>();
 
             return services;

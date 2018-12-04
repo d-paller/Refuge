@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Refuge.Application.Interfaces;
+using Refuge.Data.Interfaces.Repositories;
 using Refuge.Model.Classes;
+using Refuge.Model.Survey;
 using Refuge.Web.Model;
 
 namespace Refuge.Web.Controllers
@@ -12,10 +14,12 @@ namespace Refuge.Web.Controllers
     public class AdminController : Controller
     {
         private readonly IClassBLL _classBll;
+        private readonly ISurveyRepository _surveyRepo;
 
-        public AdminController(IClassBLL classBll)
+        public AdminController(IClassBLL classBll, ISurveyRepository surveyRepository)
         {
             _classBll = classBll;
+            _surveyRepo = surveyRepository;
         }
 
 
@@ -59,6 +63,15 @@ namespace Refuge.Web.Controllers
         {
             ViewBag.Title = "Admin - Classes";
             return View("EditClass", classToEdit);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllSurveys()
+        {
+            var model = await _surveyRepo.GetAllSurveys();
+            ViewBag.Title = "Admin - Survey";
+
+            return View("ViewSurveys", model);
         }
 
         List<Class> testListOfClasses = new List<Class>

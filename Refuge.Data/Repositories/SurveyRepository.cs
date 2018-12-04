@@ -1,4 +1,5 @@
-﻿using Refuge.Data.Interfaces.Context;
+﻿using MongoDB.Driver;
+using Refuge.Data.Interfaces.Context;
 using Refuge.Data.Interfaces.Repositories;
 using Refuge.Data.Mapping;
 using Refuge.Model.Survey;
@@ -24,6 +25,13 @@ namespace Refuge.Data.Repositories
 
             await _surveyContext.Survey
                 .InsertOneAsync(dbSurvey);
+        }
+
+        public async Task<IEnumerable<Survey>> GetAllSurveys()
+        {
+            return await _surveyContext.Survey
+                .Find(_ => true)
+                .ToListAsync();
         }
     }
 }

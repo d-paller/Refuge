@@ -19,6 +19,7 @@ namespace Refuge.Web.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Title = "Survey";
             return View();
         }
 
