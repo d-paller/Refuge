@@ -1,4 +1,5 @@
-﻿using Refuge.Data.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using Refuge.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -8,13 +9,21 @@ namespace Refuge.Data
 {
     internal sealed class ConfigValues : IConfigValues
     {
+        private readonly IConfiguration _configuration;
+
+        public ConfigValues()
+        {
+            _configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+        }
         // ---------------------------------------------
         // Connections (databases)
         // ---------------------------------------------
         public string GetMongoConnection()
         {
             //TODO
-            return "";// ConfigurationManager.ConnectionStrings["DefaultMongoConnection"].ConnectionString;
+            return _configuration.GetConnectionString("DefaultMongoConnection");
         }
 
         // ---------------------------------------------
@@ -22,7 +31,7 @@ namespace Refuge.Data
         // ---------------------------------------------
         public string GetRefugeDB()
         {
-            return ConfigurationManager.AppSettings.Get("DatabaseRefuge");
+            return _configuration["DatabaseRefuge"];
         }
 
 
@@ -31,17 +40,17 @@ namespace Refuge.Data
         // ---------------------------------------------
         public string GetClassesCollection()
         {
-            return ConfigurationManager.AppSettings.Get("CollectionClass");
+            return _configuration["CollectionClass"];
         }
 
         public string GetStudentsCollection()
         {
-            return ConfigurationManager.AppSettings.Get("CollectionStudent");
+            return _configuration["CollectionStudent"];
         }
 
         public string GetSurveyCollection()
         {
-            return ConfigurationManager.AppSettings.Get("CollectionSurvey");
+            return _configuration["CollectionSurvey"];
         }
     }
 }
