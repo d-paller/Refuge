@@ -17,7 +17,6 @@ namespace Refuge.Data.Mapping
                 CountryOfOrigin = s.CountryOfOrigin,
                 DateOfArrivalInUS = s.DateOfArrivalInUS,
                 Email = s.Email,
-                Id = new ObjectId(s.SurveyId.ToString()),
                 Language = s.Language,
                 SurveyId = s.SurveyId,
                 LevelOfEnglish = s.LevelOfEnglish,

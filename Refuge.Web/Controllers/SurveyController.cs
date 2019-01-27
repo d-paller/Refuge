@@ -28,6 +28,7 @@ namespace Refuge.Web.Controllers
         {
             await _surveyRepository.AddSurvey(s);
 
+            ViewBag.Title = "Survey";
             return View("Index");
         }
     }

@@ -22,7 +22,6 @@ namespace Refuge.Data
         // ---------------------------------------------
         public string GetMongoConnection()
         {
-            //TODO
             return _configuration.GetConnectionString("DefaultMongoConnection");
         }
 

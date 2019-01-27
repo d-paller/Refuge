@@ -17,7 +17,7 @@ namespace Refuge.Data.Context
         {
             _config = config;
             _db = new MongoClient(_config.GetMongoConnection())
-                .GetDatabase(_config.GetSurveyCollection());
+                .GetDatabase(_config.GetRefugeDB());
         }
 
         public IMongoCollection<DbSurvey> Survey => _db.GetCollection<DbSurvey>(_config.GetSurveyCollection());

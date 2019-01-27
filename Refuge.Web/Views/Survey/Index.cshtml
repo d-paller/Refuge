@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.DateOfArrivalInUS, "Phone Number")
-                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @type = "date" })
+                @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @type = "tel" })
             </div>
             <div class="form-group">
                 @Html.LabelFor(x => x.Language, "Native Language")
@@ -77,6 +77,10 @@
                     "It is Okay to contact about refuge specific events and services")
             </div>
         </div>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Submit Survey</button>
     </div>
 }
 

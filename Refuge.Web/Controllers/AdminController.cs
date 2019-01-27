@@ -30,10 +30,10 @@ namespace Refuge.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Classes()
+        public async Task<IActionResult> Classes()
         {
             ViewBag.Title = "Admin - Classes";
-            var classes = testListOfClasses;  //await _classBll.GetAllClass();
+            var classes = await _classBll.GetAllClass();
 
             var vm = new AdminClassVm
             {
@@ -66,34 +66,13 @@ namespace Refuge.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllSurveys()
+        public async Task<IActionResult> Surveys()
         {
             var model = await _surveyRepo.GetAllSurveys();
             ViewBag.Title = "Admin - Survey";
 
-            return View("ViewSurveys", model);
+            return View("ViewSurveys", model.ToList());
         }
 
-        List<Class> testListOfClasses = new List<Class>
-        {
-            new Class
-            {
-                DayOfWeek = DayOfWeek.Tuesday,
-                Location = "Welcome Center",
-                Name = "Homework Help",
-                StartTime = new DateTime(1,1,1,18,0,0),
-                TeacherName = "John Doe",
-                ClassId = 1
-            },
-            new Class
-            {
-                TeacherName = "David Paller",
-                StartTime = new DateTime(1,1,1,18,30,0),
-                Name = "Computer Class",
-                Location = "Welcome Center",
-                DayOfWeek = DayOfWeek.Monday,
-                ClassId = 2
-            }
-        };
     }
 }

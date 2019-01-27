@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewData["Title"] = ViewBag.Title;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<Refuge.Model.Survey.Survey>
+
+    <div id="accordion">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+
+            <div class="card">
+                <div class="card-header" id="@(Model[i].Name + i)">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" 
+                                data-toggle="collapse" 
+                                data-target="@("#collapse" + i)"
+                                aria-expanded="false" 
+                                aria-controls="@("collapse" + i)">
+                            @Model[i].Name
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="@("collapse" + i)" 
+                     class="collapse show" 
+                     aria-labelledby="@("#" + Model[i].Name + i)" 
+                     data-parent="#accordion">
+                    <div class="card-body">
+                        <table class="table table-hover table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>@Model[i].Name</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>@Model[i].Phone</td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>@Model[i].Address</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>@Model[i].Email</td>
+                                </tr>
+                                <tr>
+                                    <td>Religion</td>
+                                    <td>@Model[i].Religion</td>
+                                </tr>
+                                <tr>
+                                    <td>Language</td>
+                                    <td>@Model[i].Language</td>
+                                </tr>
+                                <tr>
+                                    <td>CountryOfOrigin</td>
+                                    <td>@Model[i].CountryOfOrigin</td>
+                                </tr>
+                                <tr>
+                                    <td>Date of US Arrival</td>
+                                    <td>@Model[i].DateOfArrivalInUS</td>
+                                </tr>
+                                <tr>
+                                    <td>Level of English</td>
+                                    <td>@Model[i].LevelOfEnglish</td>
+                                </tr>
+                                <tr>
+                                    <td>Services Interested In</td>
+                                    <td>@Model[i].ServicesInterestedIn</td>
+                                </tr>
+                                <tr>
+                                    <td>Is it okay to contact about Refuge News?</td>
+                                    <td>@(Model[i].OkayToContactAboutRefugeActivities == true ? "Yes" : "No")</td>
+                                </tr>
+                                <tr>
+                                    <td>Additional Information</td>
+                                    <td>@Model[i].Notes</td>
+                                </tr>
+                                <tr>
+                                    <td>Survey GUID</td>
+                                    <td>@Model[i].SurveyId</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
