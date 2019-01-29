@@ -1,4 +1,6 @@
-﻿using Refuge.Model.Enums;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using Refuge.Model.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +9,8 @@ namespace Refuge.Model.Survey
 {
     public class Survey
     {
-        public int SurveyId { get; set; }
+        [BsonId]
+        public BsonObjectId SurveyId { get; set; }
 
         public string Name { get; set; }
 

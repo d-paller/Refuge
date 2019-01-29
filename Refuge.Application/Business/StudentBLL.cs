@@ -37,5 +37,10 @@ namespace Refuge.Application.Business
         {
             await _studentRepository.CreateStudentAsync(student);
         }
+
+        public async Task UpdateStudentAsync(Student s)
+        {
+            await _studentRepository.UpdateStudentAsync(s);
+        }
     }
 }

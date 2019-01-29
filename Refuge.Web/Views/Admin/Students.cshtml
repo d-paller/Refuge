@@ -3,5 +3,47 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Students</h2>
+@model Refuge.Web.Model.StudentViewModel
 
+<div class="row justify-content-end">
+    <div class="col">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addStudent">Add Student</button>
+    </div>
+</div>
+
+@await Html.PartialAsync("_AddStudent", Model.StudentToAdd)
+
+@foreach (var student in Model.Students)
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="@(student.LoggedIn ? "card text-white bg-success" : "card text-white bg-secondary")">
+                <div class="card-header">@student.FirstName @student.LastName</div>
+                <div class="card-body">
+                    <div id="classCardBody-@(student.FirstName + student.LastName)">
+                        <div class="row">
+                            <div class="col">Parent: @student.ParentName</div>
+                            <div class="col">Parent Phone Number: @student.ParentPhoneNumber</div>
+                            <div class="col">Parent Email: @student.ParentEmailAddress</div>
+                        </div>
+
+                        <button class="btn btn-primary" data-toggle="modal" data-target="@("#editStudent" + student.StudentId)">Edit</button>
+                        <a class="btn btn-danger classDeleteBtn" data-class-id="@student.StudentId">Delete</a>
+                    </div>
+
+                    <div id="confirmDeleteClass-@student.StudentId" style="display:none">
+                        <a class="btn btn-outline-success cancelDeleteClass">Cancel</a>
+                        <a class="btn btn-danger" href="/Admin/Classes">I'm sure, Delete</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @await Html.PartialAsync("_EditStudent", student)
+}
+
+
+
+    

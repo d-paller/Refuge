@@ -15,5 +15,7 @@ namespace Refuge.Application.Interfaces
         Task<IEnumerable<Student>> GetAllStudentsAsync();
 
         Task CreateStudentAsync(Student student);
+
+        Task UpdateStudentAsync(Student s);
     }
 }

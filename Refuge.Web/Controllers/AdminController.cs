@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,13 +14,16 @@ namespace Refuge.Web.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IClassBLL _classBll;
         private readonly ISurveyRepository _surveyRepo;
 
-        public AdminController(IClassBLL classBll, ISurveyRepository surveyRepository)
+        private readonly IClassBLL _classBll;
+        private readonly IStudentBLL _studentBLL;
+
+        public AdminController(IClassBLL classBll, ISurveyRepository surveyRepository, IStudentBLL studentBLL)
         {
             _classBll = classBll;
             _surveyRepo = surveyRepository;
+            _studentBLL = studentBLL;
         }
 
 
@@ -28,6 +32,10 @@ namespace Refuge.Web.Controllers
         {
             return RedirectToAction("Classes");
         }
+
+        // ------------------------------------
+        // ------------ Classes ---------------
+        // ------------------------------------
 
         [HttpGet]
         public async Task<IActionResult> Classes()
@@ -41,14 +49,6 @@ namespace Refuge.Web.Controllers
             };
 
             return View(vm);
-        }
-
-        [HttpGet]
-        public IActionResult Students()
-        {
-            ViewBag.Title = "Admin - Students";
-
-            return View();
         }
 
         [HttpPost]
@@ -65,6 +65,41 @@ namespace Refuge.Web.Controllers
             return View("EditClass", classToEdit);
         }
 
+        // ------------------------------------
+        // ------------ Students --------------
+        // ------------------------------------
+        [HttpGet]
+        public async Task<IActionResult> Students()
+        {
+            ViewBag.Title = "Admin - Students";
+            var vm = new StudentViewModel();
+
+            var classes = await _classBll.GetAllClass();
+            var students = await _studentBLL.GetAllStudentsAsync();
+
+            vm.ListOfClasses = classes.Select(c => c.Name);
+            vm.Students = students.ToList() ;
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddStudent(Student s)
+        {
+            await _studentBLL.CreateStudentAsync(s);
+            return RedirectToAction("Students");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStudent(Student s)
+        {
+            await _studentBLL.UpdateStudentAsync(s);
+            return RedirectToAction("Students");
+        }
+               
+        // ------------------------------------
+        // ------------ Surveys ---------------
+        // ------------------------------------
         [HttpGet]
         public async Task<IActionResult> Surveys()
         {

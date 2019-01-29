@@ -1,5 +1,5 @@
 ﻿using MongoDB.Driver;
-using Refuge.Data.Model;
+using Refuge.Model.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +8,8 @@ namespace Refuge.Data.Interfaces.Context
 {
     public interface IClassContext
     {
-        IMongoCollection<DbClass> Classes { get; }
+        IMongoCollection<Class> Classes { get; }
 
-        IMongoCollection<DbStudent> Students { get; }
+        IMongoCollection<Student> Students { get; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Refuge.Data.Model;
-using Refuge.Model.Classes;
+﻿using Refuge.Model.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,12 +8,14 @@ namespace Refuge.Data.Interfaces.Repositories
 {
     public interface IStudentRepository
     {
-        Task<IEnumerable<DbStudent>> GetAllStudentsAsync();
+        Task<IEnumerable<Student>> GetAllStudentsAsync();
 
-        Task<DbStudent> GetStudentAsync(int studentId);
+        Task<Student> GetStudentAsync(int studentId);
 
         Task CreateStudentAsync(Student student);
 
-        Task<IEnumerable<DbStudent>> GetStudentsByClassIdAsync(int classId);
+        Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId);
+
+        Task UpdateStudentAsync(Student s);
     }
 }

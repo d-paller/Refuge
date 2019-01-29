@@ -3,7 +3,6 @@ using Refuge.Data.Interfaces;
 using Refuge.Data.Interfaces.Context;
 using Refuge.Data.Interfaces.Repositories;
 using Refuge.Data.Mapping;
-using Refuge.Data.Model;
 using Refuge.Model.Classes;
 using System;
 using System.Collections.Generic;

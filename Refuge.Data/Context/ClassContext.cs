@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
 using Refuge.Data.Interfaces;
 using Refuge.Data.Interfaces.Context;
-using Refuge.Data.Model;
+using Refuge.Model.Classes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,8 +20,8 @@ namespace Refuge.Data.Context
                 .GetDatabase(_config.GetRefugeDB());
         }
 
-        public IMongoCollection<DbClass> Classes => _db.GetCollection<DbClass>(_config.GetClassesCollection());
+        public IMongoCollection<Class> Classes => _db.GetCollection<Class>(_config.GetClassesCollection());
 
-        public IMongoCollection<DbStudent> Students => _db.GetCollection<DbStudent>(_config.GetStudentsCollection());
+        public IMongoCollection<Student> Students => _db.GetCollection<Student>(_config.GetStudentsCollection());
     }
 }

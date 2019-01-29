@@ -1,0 +1,75 @@
+﻿@model Refuge.Model.Classes.Student
+
+<div class="modal fade" id="@("editStudent" + Model.StudentId)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addStudentTitle">Edit Student</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            @using (Html.BeginForm("UpdateStudent", "Admin", FormMethod.Post))
+            {
+                <div class="modal-body">
+                    <h2>Student Information</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(x => x.FirstName, "Student First Name")
+                            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+                        </div>
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(x => x.LastName, "Student Last Name")
+                            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control", @placeholder = "Last Name" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Address)
+                        @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @placeholder = "1234 Main St." })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.Address2)
+                        @Html.TextBoxFor(x => x.Address2, new { @class = "form-control", @placeholder = "Apartment Number/floor" })
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            @Html.LabelFor(x => x.City)
+                            @Html.TextBoxFor(x => x.City, new { @class = "form-control", Value = "Louisville" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.State)
+                            @Html.DropDownListFor(x => x.State, new SelectList(Refuge.Model.Util.StateArray.Names()), "Kentucky", new { @class = "custom-select" })
+                        </div>
+                        <div class="form-group col-md-2">
+                            @Html.LabelFor(x => x.Zip)
+                            @Html.TextBoxFor(x => x.Zip, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <h2>Parent/Guardian Info</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.ParentName, "Parent Name")
+                            @Html.TextBoxFor(x => x.ParentName, new { @class = "form-control", @placeholder = "First and Last Name" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.ParentEmailAddress, "Parent Email Address")
+                            @Html.TextBoxFor(x => x.ParentEmailAddress, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-4">
+                            @Html.LabelFor(x => x.ParentPhoneNumber, "Parent Phone Number")
+                            @Html.TextBoxFor(x => x.ParentPhoneNumber, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson;
-using Refuge.Data.Model;
 using Refuge.Model.Survey;
 using System;
 using System.Collections.Generic;
@@ -9,9 +8,9 @@ namespace Refuge.Data.Mapping
 {
     internal class SurveyMapper
     {
-        internal DbSurvey MapToDbSurvey(Survey s)
+        internal Survey MapToDbSurvey(Survey s)
         {
-            return new DbSurvey
+            return new Survey
             {
                 Address = s.Address,
                 CountryOfOrigin = s.CountryOfOrigin,

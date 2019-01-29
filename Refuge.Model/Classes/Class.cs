@@ -1,10 +1,13 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace Refuge.Model.Classes
 {
     public class Class
     {
-        public int ClassId { get; set; }
+        [BsonId]
+        public BsonObjectId ClassId { get; set; }
 
         public int TeacherUserId { get; set; }
 

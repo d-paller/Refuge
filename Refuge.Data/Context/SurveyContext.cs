@@ -1,7 +1,7 @@
 ﻿using MongoDB.Driver;
 using Refuge.Data.Interfaces;
 using Refuge.Data.Interfaces.Context;
-using Refuge.Data.Model;
+using Refuge.Model.Survey;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +20,6 @@ namespace Refuge.Data.Context
                 .GetDatabase(_config.GetRefugeDB());
         }
 
-        public IMongoCollection<DbSurvey> Survey => _db.GetCollection<DbSurvey>(_config.GetSurveyCollection());
+        public IMongoCollection<Survey> Survey => _db.GetCollection<Survey>(_config.GetSurveyCollection());
     }
 }
