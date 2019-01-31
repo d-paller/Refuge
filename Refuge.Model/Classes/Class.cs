@@ -7,7 +7,8 @@ namespace Refuge.Model.Classes
     public class Class
     {
         [BsonId]
-        public BsonObjectId ClassId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string ClassId { get; set; }
 
         public int TeacherUserId { get; set; }
 

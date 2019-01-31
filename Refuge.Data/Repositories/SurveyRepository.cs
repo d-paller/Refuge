@@ -21,10 +21,8 @@ namespace Refuge.Data.Repositories
 
         public async Task AddSurvey(Survey survey)
         {
-            var dbSurvey = new SurveyMapper().MapToDbSurvey(survey);
-
             await _surveyContext.Survey
-                .InsertOneAsync(dbSurvey);
+                .InsertOneAsync(survey);
         }
 
         public async Task<IEnumerable<Survey>> GetAllSurveys()

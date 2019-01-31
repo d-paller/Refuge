@@ -17,5 +17,7 @@ namespace Refuge.Data.Interfaces.Repositories
         Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId);
 
         Task UpdateStudentAsync(Student s);
+
+        Task SentStudentInactiveAsync(string id);
     }
 }

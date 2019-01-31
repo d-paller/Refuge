@@ -42,5 +42,10 @@ namespace Refuge.Application.Business
         {
             await _studentRepository.UpdateStudentAsync(s);
         }
+
+        public async Task DeleteStudentAsync(string id)
+        {
+            await _studentRepository.SentStudentInactiveAsync(id);
+        }
     }
 }

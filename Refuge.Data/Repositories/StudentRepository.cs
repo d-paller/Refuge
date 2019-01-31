@@ -23,10 +23,8 @@ namespace Refuge.Data.Repositories
 
         public async Task CreateStudentAsync(Student student)
         {
-            var dbStudent = new StudentMapper().MapToDbStudent(student);
-
             await _classContext.Students
-                .InsertOneAsync(dbStudent);
+                .InsertOneAsync(student);
         }
 
         public async Task<IEnumerable<Student>> GetAllStudentsAsync()
@@ -57,15 +55,22 @@ namespace Refuge.Data.Repositories
                 .ToListAsync();
         }
 
+        public Task SentStudentInactiveAsync(string id)
+        {
+            FilterDefinition<Student> filter = Builders<Student>.Filter
+                .Eq(x => x.StudentId, id);
+            UpdateDefinition<Student> def = Builders<Student>.Update
+                .Set(x=>x.)
+            _classContext.Students.UpdateOneAsync(filter, )
+        }
+
         public async Task UpdateStudentAsync(Student s)
         {
-            var dbS = new StudentMapper().MapToDbStudent(s);
-
             FilterDefinition<Student> filter = Builders<Student>.Filter
                 .Eq(x => x.StudentId, s.StudentId);
 
             await _classContext.Students
-                .ReplaceOneAsync(filter, dbS);
+                .ReplaceOneAsync(filter, s);
         }
     }
 }

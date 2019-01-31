@@ -93,8 +93,15 @@ namespace Refuge.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateStudent(Student s)
         {
+            ModelState.Clear();
             await _studentBLL.UpdateStudentAsync(s);
             return RedirectToAction("Students");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteStudent(string id)
+        {
+            await _studentBLL.DeleteStudentAsync(id);
         }
                
         // ------------------------------------

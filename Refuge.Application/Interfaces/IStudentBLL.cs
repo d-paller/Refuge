@@ -17,5 +17,7 @@ namespace Refuge.Application.Interfaces
         Task CreateStudentAsync(Student student);
 
         Task UpdateStudentAsync(Student s);
+
+        Task DeleteStudentAsync(string id);
     }
 }

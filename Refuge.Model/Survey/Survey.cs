@@ -10,7 +10,8 @@ namespace Refuge.Model.Survey
     public class Survey
     {
         [BsonId]
-        public BsonObjectId SurveyId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string SurveyId { get; set; }
 
         public string Name { get; set; }
 

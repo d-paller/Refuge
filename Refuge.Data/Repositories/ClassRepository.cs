@@ -28,9 +28,8 @@ namespace Refuge.Data.Repositories
 
         public async Task CreateClass(Class classToAdd)
         {
-            var dbClass = new ClassMapper().MapToDbClass(classToAdd);
             await _classContext.Classes
-                .InsertOneAsync(dbClass);
+                .InsertOneAsync(classToAdd);
         }
 
     }

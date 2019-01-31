@@ -10,7 +10,8 @@ namespace Refuge.Model.Classes
     public class Student
     {
         [BsonId]
-        public BsonObjectId StudentId { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string StudentId { get; set; }
 
         public int ClassId { get; set; }
 
@@ -33,6 +34,8 @@ namespace Refuge.Model.Classes
         public bool LoggedIn { get; set; }
 
         public DateTime LastLoggedIn { get; set; }
+
+        public bool IsEnabled { get; set; }
 
     }
 }
