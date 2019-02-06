@@ -7,5 +7,6 @@
         string GetRefugeDB();
         string GetStudentsCollection();
         string GetSurveyCollection();
+        string GetStudentHistoryCollection();
     }
 }

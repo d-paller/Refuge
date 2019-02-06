@@ -1,4 +1,4 @@
-﻿@model Refuge.Model.Classes.Student
+﻿@model Refuge.Model.Student.Student
 
 <div class="modal fade" id="@("editStudent" + Model.StudentId)" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="dialog">
@@ -15,6 +15,7 @@
                 <div class="modal-body">
                     <h2>Student Information</h2>
                     @Html.HiddenFor(x=>x.StudentId)
+                    @Html.HiddenFor(x=>x.IsEnabled)
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             @Html.LabelFor(x => x.FirstName, "Student First Name")

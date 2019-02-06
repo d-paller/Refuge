@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Refuge.Application.Interfaces;
 using Refuge.Model.Classes;
+using Refuge.Model.Student;
 
 namespace Refuge.Core.Controllers
 {

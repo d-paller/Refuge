@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Refuge.Data.Repositories
 {
-    public class ClassRepository : IClassRepository
+    internal class ClassRepository : IClassRepository
     {
         private readonly IClassContext _classContext;
 

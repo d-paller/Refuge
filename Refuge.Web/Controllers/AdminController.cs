@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Refuge.Application.Interfaces;
 using Refuge.Data.Interfaces.Repositories;
 using Refuge.Model.Classes;
+using Refuge.Model.Student;
 using Refuge.Model.Survey;
 using Refuge.Web.Model;
 
@@ -98,10 +99,22 @@ namespace Refuge.Web.Controllers
             return RedirectToAction("Students");
         }
 
-        [HttpPost]
         public async Task<IActionResult> DeleteStudent(string id)
         {
             await _studentBLL.DeleteStudentAsync(id);
+
+            return RedirectToAction("Students");
+        }
+
+        public async Task<IActionResult> LogStudentOut(string id, string datetime)
+        {
+            DateTime? d = DateTime.Now;
+            if(DateTime.TryParse(datetime, out DateTime d2))
+                d = d2;
+
+            await _studentBLL.LogStudentOut(id, d);
+
+            return RedirectToAction("Students");
         }
                
         // ------------------------------------

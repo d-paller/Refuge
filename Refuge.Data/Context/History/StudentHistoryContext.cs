@@ -1,28 +1,27 @@
 ﻿using MongoDB.Driver;
 using Refuge.Data.Interfaces;
 using Refuge.Data.Interfaces.Context;
-using Refuge.Model.Classes;
 using Refuge.Model.Student;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Refuge.Data.Context
+namespace Refuge.Data.Context.History
 {
-    internal class ClassContext : IClassContext
+    internal class StudentHistoryContext : IStudentHistoryContext
     {
         private readonly IMongoDatabase _db;
         private readonly IConfigValues _config;
 
-        public ClassContext(IConfigValues config)
+        public StudentHistoryContext(IConfigValues config)
         {
             _config = config;
             _db = new MongoClient(_config.GetMongoConnection())
                 .GetDatabase(_config.GetRefugeDB());
         }
 
-        public IMongoCollection<Class> Classes => _db.GetCollection<Class>(_config.GetClassesCollection());
 
-        public IMongoCollection<Student> Students => _db.GetCollection<Student>(_config.GetStudentsCollection());
+        public IMongoCollection<StudentHistory> StudentHistory => _db.GetCollection<StudentHistory>(_config.GetStudentHistoryCollection());
+
     }
 }

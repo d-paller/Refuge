@@ -37,19 +37,12 @@ namespace Refuge.Data
         // ---------------------------------------------
         // Collections
         // ---------------------------------------------
-        public string GetClassesCollection()
-        {
-            return _configuration["CollectionClass"];
-        }
+        public string GetClassesCollection() =>  _configuration["CollectionClass"];
 
-        public string GetStudentsCollection()
-        {
-            return _configuration["CollectionStudent"];
-        }
+        public string GetStudentsCollection() =>  _configuration["CollectionStudent"];
 
-        public string GetSurveyCollection()
-        {
-            return _configuration["CollectionSurvey"];
-        }
+        public string GetSurveyCollection() =>  _configuration["CollectionSurvey"];
+
+        public string GetStudentHistoryCollection() => _configuration["CollectionStudentHistory"];
     }
 }

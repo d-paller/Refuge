@@ -1,4 +1,5 @@
 ﻿using Refuge.Model.Classes;
+using Refuge.Model.Student;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,5 +20,7 @@ namespace Refuge.Data.Interfaces.Repositories
         Task UpdateStudentAsync(Student s);
 
         Task SentStudentInactiveAsync(string id);
+
+        Task LogStudentOut(string id);
     }
 }

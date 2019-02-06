@@ -1,4 +1,5 @@
 ﻿using Refuge.Model.Classes;
+using Refuge.Model.Student;
 using System;
 using System.Collections.Generic;
 using System.Linq;
