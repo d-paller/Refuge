@@ -40,11 +40,11 @@
                         </div>
 
                         <button class="btn btn-primary" data-toggle="modal" data-target="@("#editStudent" + student.StudentId)">Edit</button>
-                        <a class="btn btn-danger studentDeleteBtn" data-student-id="@student.StudentId">Delete</a>
+                        <button class="btn btn-danger studentDeleteBtn" data-student-id="@student.StudentId">Delete</button>
                     </div>
 
                     <div id="confirmDeleteStudent-@student.StudentId" style="display:none">
-                        <a class="btn btn-outline-success cancelDelete">Cancel</a>
+                        <button class="btn btn-success cancelDelete">Cancel</button>
                         <a class="btn btn-danger" href="/Admin/DeleteStudent/@student.StudentId">I'm sure, Delete</a>
                     </div>
 
